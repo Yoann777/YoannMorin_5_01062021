@@ -45,7 +45,7 @@ function principalPage(){
 	//Mise en place des liens vers autres pages
 	const linkNorb = document.createElement("a");
 	document.querySelector("div.secondRow").appendChild(linkNorb);
-	linkNorb.setAttribute("href","https://www.porsche.com/france/");
+	linkNorb.setAttribute("href","");
 	linkNorb.classList.add("linkNorb");
 	linkNorb.classList.add("col-lg-4");
 	linkNorb.classList.add("mt-5");
