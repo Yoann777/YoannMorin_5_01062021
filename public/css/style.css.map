@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,oBAAqB,CACpB,UAAU,CCDS,OAAO,CDE1B,MAAM,CAAE,KAAK,CACb,aAAa,CAAE,IAAI,CAEpB,wBAAyB,CACxB,UAAU,CCNS,OAAO,CDO1B,MAAM,CAAE,KAAK,CACb,aAAa,CAAE,IAAI",
+"sources": ["../../scss/layout/_global.scss","../../scss/utils/_variables.scss"],
+"names": [],
+"file": "style.css"
+}
