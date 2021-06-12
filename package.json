@@ -5,12 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./scss/main.scss:./public/css/style.css --style compressed"
+    "sass": "sass --watch ./scss/main.scss:./public/css/style.css --style compressed",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.1",
+    "fetch": "^1.1.0",
+    "sass": "^1.34.1",
     "uuid": "^3.3.2"
   }
 }
