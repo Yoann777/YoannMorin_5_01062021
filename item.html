@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8" />
     <title>Orinoco</title>
@@ -26,7 +25,7 @@
                 <div class="row">
                     <nav class="col navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="index.html">
-                            <img src="logo_orinoco.png" width="147" height="36" alt="Site logo">
+                            <img src="logo_orinoco.png" width="147" height="36" alt="Site logo" />
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarContent">
@@ -54,12 +53,13 @@
     	<section class="title">
             <div class="container">
                 <div class="jumbotron mt-5 text-center bg-light">                
-                        <h1>Bienvenue chez Orinoco</h1>
-                    </div>
+                    <h1>Bienvenue chez Orinoco</h1>
+                </div>
            </div>
         </section>
         <section id="itemPage">
         	<div class="container">
+                <h2>Choisissez l'ours en peluche qui vous fait craquer</h2>
         		<div class="row">
         			<div class="col mt-5 text-left">
         				<div class="item-window">
@@ -67,32 +67,29 @@
    								<p>
 							       <label for="teddie">Quel ours en peluche désirez-vous?</label><br />
        								<select name="teddie" id="teddie">
-<!--        									<option value="">-- Veuillez faire votre sélection --</option>
-        								<option class="number" value="1">Teddy 1</option>
-								        <option class="number" value="2">Teddy 2</option>
-        								<option class="number" value="3">Teddy 3</option>
-        								<option class="number" value="4">Teddy 4</option>
-        								<option class="number" value="5">Teddy 5</option> -->
+                                        <!-- Boucle javascrit for pour afficher les options du select -->
     								</select>
 								</p>
 							</form>
-
 							<div class="row">
-                                <div class="col-lg-6">
-                                    <div id="imageTeddy">
-                                        
+                                <div class="col-lg-6 mt-5">
+                                    <div id="infoTeddies">
+                                        <p>Référence article : <span id="id"></span></p>
+                                        <p>Nom : <span id="name"></span></p>
+                                        <p>Prix : <span id="price"></span></p>
+                                        <p>Description : <span id="description"></span></p>
+                                        <!-- <p>Image : <span id="image"></span></p> -->
+                                        <p>
+                                            Couleur : 
+                                            <select name="color" id="color">
+                                            <!-- boucle javasvript while pour afficher les options du select (couleur disponible de l'item) -->
+                                            </select>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div id="infoTeddies">
-                                        <p class="id">Référence : <span id="id"></span></p>
-                                        <p class="name">Nom : <span id="name"></span></p>
-                                        <p class="price">Prix : <span id="price"></span></p>
-                                        <p class="desc">Description : <span id="description"></span></p>
-                                        <p class="pics">Image : <span id="image"></span></p>
-                                        <p>Couleur : <span id="color"></span></p>
-                                        <p>Option : <span id="choice" class="form"><select name="testColor" id="testColor" form="testColor"></select></span>
-
+                                <div class="col-lg-6 text-center mt-5">
+                                    <div id="image">
+                                        <img />
                                     </div>
                                 </div>
 							</div>
@@ -132,7 +129,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="item.js"></script>
+    <script src="item.js"></script>
     <!-- SCRIPT END -->
 </body>
 
