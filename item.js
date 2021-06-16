@@ -16,7 +16,28 @@ fetch("http://localhost:3000/api/teddies")
                         document.getElementById("description").innerText = value[x].description;
                         document.getElementById("image").innerText = value[x].imageUrl;
                         document.getElementById("color").innerText = value[x].colors;
+                        document.getElementById("testColor").innerHTML = value[x].colors;
 
+
+
+
+                        // const reversed = value[x].colors.reverse();
+                        // let m = value[x].colors.length;
+                        // while(m-1>=0){
+                        //         let newOption = document.createElement("option");
+                        //         document.getElementById("testColor").appendChild(newOption);
+                        //         newOption.setAttribute("value",m-1);
+                        //         newOption.innerText = value[x].colors[m-1];
+                        //         m--;
+                        // }
+                        let m=0;
+                        while(m<value[x].colors.length){
+                                let newOption = document.createElement("option");
+                                document.getElementById("testColor").appendChild(newOption);
+                                newOption.setAttribute("value",m);
+                                newOption.innerText = value[x].colors[m];
+                                m++;
+                        };
                         //test
                         // for(let j=0;j<value[x].colors.length;j++){
                         //         const newOption = document.createElement("option");
@@ -31,7 +52,7 @@ fetch("http://localhost:3000/api/teddies")
                         // affiche bien l'image, mais trop grande, et l'image ne se supprime pas en changeant la valeur du menu déroulant
                         // const image = `<img src="${value[x].imageUrl}" />`;
                         // document.getElementById("imageTeddy").insertAdjacentHTML('afterbegin',image);
-                })
+                });
 
 
                         console.log(value.length);
