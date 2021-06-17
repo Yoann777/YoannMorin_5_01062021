@@ -65,3 +65,10 @@ fetch("http://localhost:3000/api/teddies")
         .catch(function(err){
                 alert("Une erreur est survenue");
         });
+
+
+function addToCart(){
+        let newSpan = document.createElement("span");
+        document.getElementById("add").appendChild(newSpan);
+        newSpan.innerHTML = "<br />Ce bouton n'est pas encore actif. il récupère les informations 'id, name, price', les ajoutent dans un tableau, utilise json stringify puis les envoi au serveur pour les réutiliser sur la page panier";
+}
