@@ -109,7 +109,7 @@ fetch("http://localhost:3000/api/teddies")
 
                         button.innerHTML = "Ajouter au panier";
                         button.className = "button";
-                        button.setAttribute("onclick","addToCart()");
+                        //button.setAttribute("onclick","addToCart()");
                         //reste à ajouter la couleur
                 };
         })
