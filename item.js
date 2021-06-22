@@ -76,38 +76,40 @@ fetch("http://localhost:3000/api/teddies")
                         newCard.className = "card";
                         newCard.id = teddy._id + teddy.name;
 
+                        let element = document.getElementById(teddy._id + teddy.name);
+
                         let newImg = document.createElement("img");
-                        document.getElementById(teddy._id + teddy.name).appendChild(newImg);
+                        let newName = document.createElement("p");
+                        let newPrice = document.createElement("p");
+                        let newDesc = document.createElement("p");
+                        let newRef = document.createElement("p");
+                        let button = document.createElement("button");
+
+                        element.appendChild(newImg);
+                        element.appendChild(newName);
+                        element.appendChild(newPrice);
+                        element.appendChild(newDesc);
+                        element.appendChild(newRef);
+                        element.appendChild(button);
+
                         newImg.setAttribute("alt",teddy.name);
                         newImg.setAttribute("src",teddy.imageUrl);
 
-                        let element = document.getElementById(teddy._id + teddy.name);
-
-                        let newName = document.createElement("p");
-                        element.appendChild(newName);
                         newName.innerHTML = teddy.name;
-                        newName.className = "mt-5";
                         newName.className = "name";
-
-                        let newPrice = document.createElement("p");
-                        element.appendChild(newPrice);
+                        
                         newPrice.innerHTML = teddy.price/100 + ",00€";
+                        newPrice.className = "price";
 
-                        let newDesc = document.createElement("p");
-                        element.appendChild(newDesc);
                         newDesc.innerHTML = teddy.description;
+                        newDesc.className = "description";
 
-                        let newRef = document.createElement("p");
-                        element.appendChild(newRef);
                         newRef.innerHTML =  teddy._id;
+                        newRef.className = "refArticle";
 
-                        let button = document.createElement("button");
-                        element.appendChild(button);
-                        button.className = "button";
-                        button.value = "addToCart";
-                        button.setAttribute("onclick","addToCart()");
                         button.innerHTML = "Ajouter au panier";
-
+                        button.className = "button";
+                        button.setAttribute("onclick","addToCart()");
                         //reste à ajouter la couleur
                 };
         })
