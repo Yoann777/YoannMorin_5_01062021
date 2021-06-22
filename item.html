@@ -49,8 +49,8 @@
     </header>
     <!-- HEADER END -->
     <!-- MAIN -->
-    <main>
-    	<section class="title">
+    <main class="main" id="main">
+        <section class="title">
             <div class="container">
                 <div class="jumbotron mt-5 text-center bg-light">                
                     <h1>Bienvenue chez Orinoco</h1>
@@ -58,14 +58,25 @@
            </div>
         </section>
         <section>
-            <div class="container" id="info"></div>
-        	<div class="container" id="itemPage">
-                <div class="row"></div>
+            <div class="container">
+                <div class="row" id="row">
+                <template id="templateTeddy">            
+                    
+                        <div class="col-12 col-lg-4 mt-5">
+                        	<div class="card">
+                                <div id="card__img" class="card___img">IMG</div>
+                                <h2 id="card__name" class="card__name">NAME</h2>
+                                <p id="card__price" class="card__price">PRICE</p>
+                                <p id="card__desc" class="card__desc">DESCRIPTION</p>
+                                <p id="card__id" class="card__id">ID</p>
+                                <button id="card__button" class="card__button">ADD</button>
+                            </div>
+                        </div>
+                    
+                </template>
+                </div>
             </div>
         </section>
-        <div id="test">
-
-        </div>
     </main>
     <!-- MAIN END -->
     <!-- FOOTER -->
@@ -98,7 +109,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="item.js"></script>
-    <script src="adding.js"></script>
+
     <!-- SCRIPT END -->
 </body>
 
