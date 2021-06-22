@@ -63,54 +63,47 @@ fetch("http://localhost:3000/api/teddies")
                 // };
 
 
+
+                console.log(results);
+                
+
+
+                const row = document.querySelector("#itemPage .row");
                 for(const teddy of results){
                         console.log(teddy);
 
-                        let newCol = document.createElement("div");
-                        document.querySelector("#itemPage .row").appendChild(newCol);
-                        newCol.className = "col-12 col-lg-4 mt-5";
-                        newCol.id = teddy.name + teddy._id;
 
-                        let newCard = document.createElement("div");
-                        document.getElementById(teddy.name + teddy._id).appendChild(newCard);
-                        newCard.className = "card";
-                        newCard.id = teddy._id + teddy.name;
 
-                        let element = document.getElementById(teddy._id + teddy.name);
 
+                        let newCol = document.createElement('div');
+                        newCol.classList.add('col-12');
+                        newCol.classList.add('col-lg-4');
+                        newCol.classList.add('mt-5');
+                        let newCard = document.createElement('div');
+                        newCard.classList.add('card');
                         let newImg = document.createElement("img");
+                        newImg.setAttribute('alt','Teddy');
+                        newImg.setAttribute('src',`${teddy.imageUrl}`);
                         let newName = document.createElement("p");
+                        newName.innerText = `${teddy.name}`;
+                        newName.classList.add('name');
                         let newPrice = document.createElement("p");
+                        newPrice.innerText = `${teddy.price/100},00€`;
+                        newPrice.classList.add('price');
                         let newDesc = document.createElement("p");
+                        newDesc.innerText = `${teddy.description}`;
+                        newDesc.classList.add('description');
                         let newRef = document.createElement("p");
-                        let button = document.createElement("button");
+                        newRef.innerText = `${teddy._id}`;
+                        newRef.classList.add('refArticle');
 
-                        element.appendChild(newImg);
-                        element.appendChild(newName);
-                        element.appendChild(newPrice);
-                        element.appendChild(newDesc);
-                        element.appendChild(newRef);
-                        element.appendChild(button);
-
-                        newImg.setAttribute("alt",teddy.name);
-                        newImg.setAttribute("src",teddy.imageUrl);
-
-                        newName.innerHTML = teddy.name;
-                        newName.className = "name";
-                        
-                        newPrice.innerHTML = teddy.price/100 + ",00€";
-                        newPrice.className = "price";
-
-                        newDesc.innerHTML = teddy.description;
-                        newDesc.className = "description";
-
-                        newRef.innerHTML =  teddy._id;
-                        newRef.className = "refArticle";
-
-                        button.innerHTML = "Ajouter au panier";
-                        button.className = "button";
-                        //button.setAttribute("onclick","addToCart()");
-                        //reste à ajouter la couleur
+                        newCard.append(newImg);
+                        newCard.append(newName);
+                        newCard.append(newPrice);
+                        newCard.append(newDesc);
+                        newCard.append(newRef);
+                        newCol.append(newCard);
+                        row.append(newCol);      
                 };
         })
         //Si une erreur survient, on crée une alerte 
