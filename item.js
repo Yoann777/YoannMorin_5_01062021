@@ -65,15 +65,16 @@ fetch("http://localhost:3000/api/teddies")
 
 
                 console.log(results);
-                
-
+                let newPar = document.createElement("h2");
+                newPar.innerText = `Il y a ${results.length} article(s) correspondant à votre recherche`;
+                document.getElementById("info").append(newPar);
 
                 const row = document.querySelector("#itemPage .row");
                 for(const teddy of results){
                         console.log(teddy);
 
 
-
+                        
 
                         let newCol = document.createElement('div');
                         newCol.classList.add('col-12');
@@ -97,11 +98,17 @@ fetch("http://localhost:3000/api/teddies")
                         newRef.innerText = `${teddy._id}`;
                         newRef.classList.add('refArticle');
 
+                        let newButton = document.createElement('button');
+                        newButton.innerText = "Ajouter au panier";
+                        newButton.classList.add('button');
+                        newButton.setAttribute('onclick','addToCart()');
+
                         newCard.append(newImg);
                         newCard.append(newName);
                         newCard.append(newPrice);
                         newCard.append(newDesc);
                         newCard.append(newRef);
+                        newCard.append(newButton);
                         newCol.append(newCard);
                         row.append(newCol);      
                 };
