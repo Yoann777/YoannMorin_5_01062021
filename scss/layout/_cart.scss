@@ -1,0 +1,26 @@
+.cart{
+    h2 {
+        text-align: center;
+    }
+    img {
+        object-fit: cover;
+        width: 120px;
+        height: 120px;
+    }
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .amount-item {
+        letter-spacing: 5px;
+        .fas {
+            font-size: 20px;
+            color: $bg-templates;
+        }
+    }
+}
+.cart-footer {
+    text-align: center;
+    font-weight: bold;
+}
