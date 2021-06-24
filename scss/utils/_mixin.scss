@@ -1,0 +1,16 @@
+@mixin button {
+    main {
+        button {
+            width: 60%;
+            margin-bottom: 15px;
+            border: unset;
+            background-color: $bg-templates;
+            border: 3px solid white;
+            padding: 10px;
+            &:active {
+                background: white;
+                border: 3px solid $bg-templates;
+            }
+        }
+    }
+}
