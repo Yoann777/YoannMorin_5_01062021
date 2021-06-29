@@ -1,0 +1,29 @@
+#product {
+     .row {
+          .item-teddy {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+          }
+          img{
+               object-fit: cover;
+               height: 250px;
+          }
+     }
+     .buttons{
+          margin-top: 20px;
+          width: 50%;
+          min-width: 100px;
+     }
+}
+
+.btn-nav {
+     .back{
+          display: block;
+          margin: auto;
+     }
+     .cart{
+          display: block;
+          margin: auto;
+     }
+}
