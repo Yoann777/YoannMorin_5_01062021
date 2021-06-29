@@ -1,26 +1,27 @@
-.cart{
-    h2 {
+#cart{
+    min-height: 400px;
+    img{
+        object-fit: cover;
+        width: 100px;
+    }
+    .product-info,
+    .quantity,
+    .remove{
         text-align: center;
     }
-    img {
-        object-fit: cover;
-        width: 120px;
-        height: 120px;
+    .quantity{
+        letter-spacing: 10px;
     }
-}
-.cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .amount-item {
-        letter-spacing: 5px;
-        .fas {
-            font-size: 20px;
-            color: $bg-templates;
+    .remove{
+        &:hover{
+            color: #ff7f00;
+            cursor: pointer;
         }
     }
-}
-.cart-footer {
-    text-align: center;
-    font-weight: bold;
+    .fas{
+        &:hover{
+            color: #ff7f00;
+            cursor: pointer;
+        }
+    }
 }
