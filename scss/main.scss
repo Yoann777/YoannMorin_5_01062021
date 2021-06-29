@@ -1,5 +1,6 @@
 @import "./utils/variables";
 @import "./utils/mixin";
-@import "./layout/global";
-@import "./layout/item";
+@import "./layout/index";
+@import "./layout/product";
 @import "./layout/cart";
+@import "./layout/confirmation";
