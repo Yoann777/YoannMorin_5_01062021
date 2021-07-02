@@ -172,6 +172,10 @@ const isValidInput = (value) =>
   doNotContainNumber(value) &&
   doNotContainSpecialCharacter(value);
 
+const isValidAddress = (value) =>
+isNotEmpty(value) &&
+isLongEnough(value);
+
 //on récupère les éléments du formulaire pour l'envoi vers le serveur 
 const firstName = form.elements.firstName;
 const lastName = form.elements.lastName;
@@ -180,65 +184,45 @@ const city = form.elements.city;
 const email = form.elements.email;
 const btn = document.getElementById("btn");
 
-//en cas d'erreur de saisie, on définit un message d'erreur pour les éléments du formulaire
-const firstNameErrorMessage = document.getElementById("firstNameErrorMessage");
-const lastNameErrorMessage = document.getElementById("lastNameErrorMessage");
-const addressErrorMessage = document.getElementById("addressErrorMessage");
-const cityErrorMessage = document.getElementById("cityErrorMessage");
-const emailErrorMessage = document.getElementById("emailErrorMessage");
-
 //on vérifie les données saisies par l'utilisateur
 const formValidate = () => {
-  if (isValidInput(firstName.value)) {
-    firstNameErrorMessage.textContent = "";
 
-    if (isValidInput(lastName.value)) {
-      lastNameErrorMessage.textContent = "";
-
-      if (isNotEmpty(address.value) && isLongEnough(address.value)) {
-        addressErrorMessage.textContent = "";
-
-        if (isValidInput(city.value)) {
-          cityErrorMessage.textContent = "";
-
-          if (isValidEmail(email.value)) {
-            emailErrorMessage.textContent = "";
-
-            return (cartInformation.contact = {
-              // si tout les input sont valides, on renvoie l'objet contact à cartInformation
-              firstName: firstName.value,
-              lastName: lastName.value,
-              address: address.value,
-              city: city.value,
-              email: email.value,
-            });
-          } else { //on indique pourquoi le formulaire ne peut être envoyé
-            emailErrorMessage.textContent =
-              "Merci de renseigner votre adresse mail !";
-            email.focus();
-            return false;
-          }
-        } else {
-          cityErrorMessage.textContent = "Merci de renseigner votre ville !";
-          city.focus();
-          return false;
-        }
-      } else {
-        addressErrorMessage.textContent = "Merci de renseigner votre adresse !";
-        address.focus();
-        return false;
-      }
-    } else {
-      lastNameErrorMessage.textContent = " Merci de renseigner votre nom !";
-      lastName.focus();
-      return false;
-    }
-  } else {
-    firstNameErrorMessage.textContent = "Merci de renseigner votre prénom !";
+  if(!isValidInput(firstName.value)){
+    alert("Veuillez indiquer votre prénom");
     firstName.focus();
     return false;
   }
-};
+  if(!isValidInput(lastName.value)){
+    alert("Veuillez indiquer votre nom");
+    lastName.focus();
+    return false;
+  }
+  if(!isValidAddress(address.value)){
+    alert("Veuillez indiquer votre addresse");
+    address.focus();
+    return false;
+  }
+  if(!isValidInput(city.value))
+  {
+    alert("Veuillez indiquer votre ville");
+    city.focus();
+    return false;
+  }
+  if(!isValidEmail(email.value))
+  {
+    alert("Le champ email est vide ou non conforme");
+    email.focus();
+    return false;
+  }
+  return (cartInformation.contact = {
+    // si tout les input sont valides, on renvoie l'objet contact à cartInformation
+    firstName: firstName.value,
+    lastName: lastName.value,
+    address: address.value,
+    city: city.value,
+    email: email.value,
+  });
+}
 
 // envoie des données à l'api
 const postData = async (method, url, dataElt) => {
