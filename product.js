@@ -19,6 +19,10 @@ const getItem = async (productUrl, productId) => {
 };
 // Crée l'affichage selon le produit dans le code html
 const renderItem = (productData) => {
+  if(!productData._id){
+    document.querySelector('h1').innerHTML = 'Oops, did it again';
+    item.innerHTML = `<div class="col-12 text-center your-item h2">Don't fuck with Teddies</div>`
+  }else{
   item.innerHTML = `
     <div class="col-12 text-center your-item h2">Votre Teddy ${productData.name}</div>
     <div class="col-12 col-lg-10 offset-lg-1 mt-5">
@@ -37,6 +41,7 @@ const renderItem = (productData) => {
         </div>
       </div>
     </div>`;
+  }
 };
 
 // Choix de la couleur du produit
@@ -60,7 +65,7 @@ const colorChoice = (parentElt, productColors) => {
   select.addEventListener("change", (e) => {
     colorChosen = e.target.value;
   });
-};
+}; 
 
 
 // Ajout du produit au panier
