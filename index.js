@@ -1,6 +1,5 @@
 // Définition d'une constante "url" pour stocker l'url de l'API
 const url = "http://localhost:3000/api/teddies";
-
 // Ici, on affiche tous les produits, puis on boucle dessus
 const displayProducts = async () => {
   const products = await getProducts(url);
@@ -18,22 +17,23 @@ function getProducts(){
       //1er then, la réponse de la requête
       .then(function(response){
           //fichier transformé en json
-          return response.json()
+          return response.json();
       })
       //on récupère tous les articles
       .then(function(products){
           //vérif avec console.log que le fetch fonctionne bien
-          //console.log(articles)
+          console.log(products)
           return products
       })
       //si un problème quelconque survient, on affiche une erreur
       .catch(function(error){
-          alert(ERREUR)
+        document.querySelector('h1').textContent = "Oops, un problème est survenu. Teddies non trouvés";
       })
 }
 
 // Fourni l'affichage d'un produit
 function renderProduct(productName, productId, productImg, productPrice) {
+
   document.querySelector('#main .row').innerHTML += `
     <div class="col-12 col-sm-6 col-lg-4 mt-5">
         <div class="card">
