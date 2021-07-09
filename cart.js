@@ -55,7 +55,7 @@ const displayCart = async () => {
 
 // récupération des produits dans le stockage local
 const getItem = async (productId) => {
-  const response = await fetch("http://localhost:3000/api/teddies/" + productId);
+  const response = await fetch(url + productId);
   return await response.json();
 };
 
@@ -186,32 +186,30 @@ const btn = document.getElementById("btn");
 
 //on vérifie les données saisies par l'utilisateur
 const formValidate = () => {
-
+  let isValid = true;
   if(!isValidInput(firstName.value)){
-    alert("Veuillez indiquer votre prénom");
-    firstName.focus();
-    return false;
-  }
+    document.getElementById('firstNameError').textContent = 'Champ incorrect - Veuillez indiquer votre prénom';
+    isValid = false;
+  } else { document.getElementById('firstNameError').textContent = ''; }
   if(!isValidInput(lastName.value)){
-    alert("Veuillez indiquer votre nom");
-    lastName.focus();
-    return false;
-  }
+    document.getElementById('lastNameError').textContent = 'Champ incorrect - Veuillez indiquer votre nom';
+    isValid = false;
+  } else { document.getElementById('lastNameError').textContent = ''; }
   if(!isValidAddress(address.value)){
-    alert("Veuillez indiquer votre addresse");
-    address.focus();
-    return false;
-  }
+    document.getElementById('addressError').textContent = 'Champ incorrect - Veuillez indiquer votre adresse';
+    isValid = false;
+  } else { document.getElementById('addressError').textContent = ''; }
   if(!isValidInput(city.value))
   {
-    alert("Veuillez indiquer votre ville");
-    city.focus();
-    return false;
-  }
+    document.getElementById('cityError').textContent = 'Champ incorrect - Veuillez indiquer votre ville';
+    isValid = false;
+  } else { document.getElementById('cityError').textContent = ''; }
   if(!isValidEmail(email.value))
   {
-    alert("Le champ email est vide ou non conforme");
-    email.focus();
+    document.getElementById('emailError').textContent = 'Champ incorrect - Le champ email est vide ou non conforme';
+    isValid = false;
+  } else { document.getElementById('emailError').textContent = ''; }
+  if(!isValid){
     return false;
   }
   return (cartInformation.contact = {
@@ -242,7 +240,7 @@ btn.addEventListener("click", async (e) => {
   if (validForm !== false) {
     const response = await postData(
       "POST",
-      "http://localhost:3000/api/teddies/order",
+      url + "/order",
       cartInformation
     ); 
     // envoie des données au serveur
