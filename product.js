@@ -1,5 +1,3 @@
-// Comme pour index.js, on défini une constante contenant l'url de l'api
-const url = "http://localhost:3000/api/teddies/";
 // On récupère les paramètres de l'url
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
@@ -8,9 +6,14 @@ const item = document.querySelector("#product .main-row");
 // On affiche le produit
 const displayProduct = async () => {
   const data = await getItem(url, id);
-  renderItem(data);
-  colorChoice(item, data.colors);
-  addToCart(item, data);
+
+  // Si la longueur du tableau data est nulle, on affiche un message d'erreur à l'écran
+  if (Object.keys(data).length === 0) { document.querySelector('h1').innerHTML = 'Article introuvable'; }
+  else {
+    renderItem(data);
+    colorChoice(item, data.colors);
+    addToCart(item, data);
+  }
 };
 // Puis on récupère un teddy
 const getItem = async (productUrl, productId) => {
@@ -19,11 +22,7 @@ const getItem = async (productUrl, productId) => {
 };
 // Crée l'affichage selon le produit dans le code html
 const renderItem = (productData) => {
-  if(!productData._id){
-    document.querySelector('h1').innerHTML = 'Oops, did it again';
-    item.innerHTML = `<div class="col-12 text-center your-item h2">Don't fuck with Teddies</div>`
-  }else{
-  item.innerHTML = `
+    item.innerHTML = `
     <div class="col-12 text-center your-item h2">Votre Teddy ${productData.name}</div>
     <div class="col-12 col-lg-10 offset-lg-1 mt-5">
       <div class="row item-teddy">
@@ -41,7 +40,6 @@ const renderItem = (productData) => {
         </div>
       </div>
     </div>`;
-  }
 };
 
 // Choix de la couleur du produit
@@ -61,11 +59,11 @@ const colorChoice = (parentElt, productColors) => {
     option.textContent = productColor;
     select.appendChild(option);
   });
-  
+
   select.addEventListener("change", (e) => {
     colorChosen = e.target.value;
   });
-}; 
+};
 
 
 // Ajout du produit au panier
