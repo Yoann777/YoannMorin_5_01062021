@@ -10,9 +10,9 @@ const displayProducts = async () => {
 
 // Ici, on récupère les produits disponibles via l'API
 
-function getProducts() {
+function getProducts(apiUrl) {
   //pour retourner les résultats, on retourne le fetch. Il s'agit d'une promesse, d'où await getArticles()
-  return fetch(url)
+  return fetch(apiUrl)
     //ci-dessous, les fonctions que fetch va executer quand il aura récupéré les données
     //1er then, la réponse de la requête
     .then(function (response) {
