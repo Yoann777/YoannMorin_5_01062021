@@ -22,7 +22,7 @@ const displayCart = async () => {
     for (let i = 0; i < Object.keys(cartItems).length; i++) {
       const itemId = Object.keys(cartItems)[i];
       //on récupère les informations des produits stockés
-      const product = await getItem(itemId); 
+      const product = await getItem(url, itemId); 
       const teddyId = product._id;
       const teddyName = product.name;
       const teddyPrice = product.price;
@@ -54,10 +54,7 @@ const displayCart = async () => {
 };
 
 // récupération des produits dans le stockage local
-const getItem = async (productId) => {
-  const response = await fetch(url + productId);
-  return await response.json();
-};
+
 
 //ci-dessous, on affiche les éléments du stockage local 
 const renderCart = (productName, productPrice, imgUrl, productQuantity) => {
@@ -86,7 +83,7 @@ const renderCart = (productName, productPrice, imgUrl, productQuantity) => {
   //on implémente le prix total 
   totalPrice += productPrice * productQuantity;
   //puis on récapitule le contenu du panier
-  cartTotal.textContent = `Le montant du panier est de : ${totalPrice/100},00€`;
+  cartTotal.textContent = `Le montant du panier est de : ${totalPrice/100}€`;
 };
 
 
@@ -106,6 +103,8 @@ const deleteCart = (removeElt, container, productId) => {
     location.reload(true);
   });
 };
+
+
 
 //décrémentation des produits dans le panier au clique sur moins. si = 0, on supprime le produit
 const decrementItem = (removeIcon, container, productId) => {
