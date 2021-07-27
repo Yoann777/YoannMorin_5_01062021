@@ -4,8 +4,8 @@ const id = params.get("id");
 const item = document.querySelector("#product .main-row");
 
 // On affiche le produit
-const displayProduct = async () => {
-  const data = await getItem(url, id);
+const displayProduct = async (apiUrl, elementId) => {
+  const data = await getItem(apiUrl, elementId);
 
   // Si la longueur du tableau data est nulle, on affiche un message d'erreur à l'écran
   if (Object.keys(data).length === 0) { document.querySelector('h1').innerHTML = 'Article introuvable'; }
@@ -16,10 +16,7 @@ const displayProduct = async () => {
   }
 };
 // Puis on récupère un teddy
-const getItem = async (productUrl, productId) => {
-  const response = await fetch(productUrl + productId);
-  return await response.json();
-};
+
 // Crée l'affichage selon le produit dans le code html
 const renderItem = (productData) => {
     item.innerHTML = `
@@ -105,4 +102,4 @@ const addToCart = (parentElt, productData) => {
   });
 };
 
-displayProduct();
+displayProduct(url, id);
